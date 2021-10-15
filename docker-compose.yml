@@ -1,0 +1,46 @@
+version: '3' #kicsit kérdőjjeles mi is pontosan :D 
+services:
+  www:
+    image: php:apache        #az image amit letölt php és apache
+    container_name: php
+    build:
+      context: .                    #saját mappábol indit
+      dockerfile: Dockerfile      #itt hivja meg a dockerfile-t
+    ports:
+      - 8080:80
+    volumes:
+      - ./src:/var/www/html/         #a apache mappába rak
+    links:
+      - db
+    networks:
+      - default
+  db:
+    image: mysql:latest 
+    container_name: db 
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    environment: #alap értékek adása
+      MYSQL_DATABASE: adatok
+      MYSQL_USER: user
+      MYSQL_ROOT_PASSWORD: mypassword
+      MYSQL_PASSWORD: mypassword
+       
+    
+    volumes:
+      - my-db:/var/lib/mysql
+    ports:
+      - '3306:3306'
+  
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+     - "8081:80"
+    environment:
+      MYSQL_ROOT_PASSWORD: mypassword
+      PMA_HOST: db   
+      PMA_USER: root 
+      PMA_PASSWORD: mypassword 
+
+volumes: 
+  my-db:

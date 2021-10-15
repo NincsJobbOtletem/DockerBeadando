@@ -1,0 +1,53 @@
+body  
+{  
+    margin: 0;  
+    padding: 0;  
+    background-color: #cedef0;
+
+    font-family: monospace;
+    
+}  
+.loginform{  
+        width: 300px;  
+        overflow: hidden;  
+        margin: auto;  
+        padding: 40px;  
+        background: #6b9db1;  
+        border-radius: 15px ;  
+          
+}  
+h2{  
+    text-align: center;  
+    color:#6661c7; 
+    padding: 20px;  
+}  
+label{  
+    color: #6661c7;  
+    font-size: 17px;  
+}  
+#username{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}  
+#password{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}  
+#submit{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 17px;  
+    padding-left: 8px;  
+    
+    color: blue;  
+  
+  
+}  
